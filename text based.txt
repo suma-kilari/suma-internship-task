@@ -1,0 +1,76 @@
+def start_game():
+    player_name = input("Enter your name: ")
+    print(f"Welcome to the adventure, {player_name}!")
+
+    current_room = "forest"
+
+    while True:
+        if current_room == "forest":
+            print("You are standing in a dark forest.")
+            print("There are two paths ahead of you: north and east.")
+            choice = input("Which way do you go? (north/east): ")
+
+            if choice == "north":
+                current_room = "north_clearing"
+            elif choice == "east":
+                current_room = "east_clearing"
+            else:
+                print("Invalid choice. Please choose north or east.")
+
+        elif current_room == "north_clearing":
+            print("You find a small clearing in the forest.")
+            print("There is a cottage in the distance.")
+            choice = input("Do you go to the cottage? (yes/no): ")
+
+            if choice == "yes":
+                current_room = "cottage"
+            elif choice == "no":
+                current_room = "forest"
+            else:
+                print("Invalid choice. Please choose yes or no.")
+
+        elif current_room == "east_clearing":
+            print("You find a larger clearing in the forest.")
+            print("There is a river running through the clearing.")
+            choice = input("Do you cross the river? (yes/no): ")
+
+            if choice == "yes":
+                print("You cross the river safely.")
+                current_room = "riverbank"
+            elif choice == "no":
+                current_room = "forest"
+            else:
+                print("Invalid choice. Please choose yes or no.")
+
+        elif current_room == "riverbank":
+            print("You reach the riverbank.")
+            print("There is a boat on the shore.")
+            choice = input("Do you take the boat? (yes/no): ")
+
+            if choice == "yes":
+                print("You take the boat and sail away.")
+                print("Congratulations! You have won the game!")
+                break
+            elif choice == "no":
+                current_room = "east_clearing"
+            else:
+                print("Invalid choice. Please choose yes or no.")
+
+        elif current_room == "cottage":
+            print("You approach the cottage and knock on the door.")
+            print("An old woman opens the door.")
+            print("She welcomes you inside and offers you some food and drink.")
+            choice = input("Do you accept her hospitality? (yes/no): ")
+
+            if choice == "yes":
+                print("You spend the night at the cottage.")
+                print("In the morning, the old woman gives you a magical amulet.")
+                print("She tells you that it will help you on your journey.")
+                current_room = "forest"
+            elif choice == "no":
+                print("You thank the old woman for her hospitality and leave the cottage.")
+                current_room = "north_clearing"
+            else:
+                print("Invalid choice. Please choose yes or no.")
+
+start_game()
